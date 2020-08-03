@@ -1,0 +1,51 @@
+namespace
+객체가 가지는 데이터를 나누어서 관리하는 공간
+
+instance_namespace
+class_namespace
+superclass_namespace
+
+instance_namespace < class_namespace < superclass_namespace 서로 포함관계
+
+python은 동적으로 속성이나 method를 추가 할 수 있다. 주의점
+
+ex) 
+student.depts = "컴퓨터" <= student 인스턴스에 없는 depts지만 파이썬은 오류가 안난다.
+student.scholarship_rate = 4.5
+
+class_namespace의 scholarship_rate가 아니라 새로운 instance를 추가한것
+
+class_namespace의 scholarship_rate을 사용할려면 Student.scholarship_rate로 선언해야한다.
+
+instance_method(self인자를 가지고 있는 method)는 하나의
+instance에 한정된 데이터를 생성,변경,참조하기위해 사용할려면
+
+@classmethod
+클래스를 인자로 받아서 class_variable을 생성,변경,참조하기 위해 사용
+인자에 cls를 추가해야한다.
+def change_scholaraship(cls,rate)
+
+def is_scholarship(self)
+
+@static_method
+추가되는 인자가 없다.
+class안에서 정의된 일반 함수
+
+외부에서 access하는것을 막는법
+private : __dept(언더바 두개, 한개는 보기용)
+access를 위해 method를 이용해서 사용
+ex) def getDept(self) :
+		return self.__dept
+	def setDept(self,dept) :
+		self.__dept = dept
+		
+def __method(self) :
+	return self.dept
+	
+객체지향을 하는 이유 => 유지보수와 재사용성
+재사용성을 위한 대표적인 객체지향 기법 -> Inheritance(상속)
+
+class Unit(object) :
+
+
+객체 정렬 : 

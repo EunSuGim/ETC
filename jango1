@@ -1,0 +1,85 @@
+Django:python으로 만들어진 오픈소스, 웹 어플을 쉽게 작성할 수 있도록 도와주는 framework
+
+라이브러리(library) : 특수한 처리를 하기 위해 만들어 놓은 함수집합
+JQuery도 라이브러리라고 볼 수 있음
+장점 : 내가 모든걸 다  작성할 필요가 없음
+단점(특징) : 전체 프로그램의 로직을 담당하지않습니다.
+
+프레임워크(Framework) : 프로그램의 전체적인 로직부분(구조)이 이미 구현이 되어 있음.
+구현된 파일을 보여주고 내가 그 사이에 코드를 껴넣고 수정하는 형식(scaffolding)
+장점 : 다른사람이 내가만든 코드를 수정하기 쉽다. 유지보수성이 좋아짐
+단점 : 처음 프레임워크의 동작원리를 이해하는 작업이 필요.
+
+Django를 이용하면 web application에서 많이 구현해야하는 내용을 쉽게 구현된
+특징
+1. 장고는 MVC Model을 기반으로한 MVT Model을 이용
+
+MVC : Model, View, Controller => Model은 자료, View는 화면처리,
+MVT : Model, View, Template => Model은 DB처리, View는 로직을 담당, Template은 화면처리
+
+Django 설치
+
+CMD창에서 pip를 이용하여 Django를 설치
+pip(python install package)
+PyPI(python Package Index)라는 repository에 있는 Django 설치
+
+c에 폴더하나 생성
+django-admin startproject mysite(프로젝트이름)
+
+
+scaffolding	
+mysite 폴더명을 myfirstwebpoll로 바꿔준다.
+왜냐) 어플리케이션을 같이 포함하고있는 폴더경로로 사용
+
+application 추가
+python manage.py startapp
+수행하면 필요한 파일들이 scaffolding이 됨
+
+pycharm 사용
+
+1,settings.py를 이용해서 프로젝트의 설정처리
+1. Django의 특징중 하나 관리자모드를 기본으로 제공
+관리자에 대한 ID,PW가 있어야하고 어딘가(DB)에 저장되어야함
+Django는 DB가 설정된 상태로 사용해야함
+기본 DB생성
+python manage.py migrate
+
+서버 기동
+python manage.py runserver => 서버실행
+localhost:8000(127.0.0.1:8000)
+localhost/admin => 관리자 로그인 페이지
+
+관리자 id,pw 생성
+python manage.py createsuperuser
+
+polls application 구현
+1. Model 생성
+	db : 데이터의 집합체
+	
+sqlite3라는 DBMS를 Django에서는 default로 사용
+
+ODBC방식과 ORM방식(Django)
+
+ORM : object relation mapping
+
+Model 작업
+우리가 사용하는 DB에 table을 생성하는 작업(Table == Relation)
+
+admin.py에 등록
+
+python manage.py makemigrations
+
+sqllite browser를 이용해서 DB파일 상태를 볼 수 있다.
+
+
+mysite.urls =>polls.urls => views => html
+
+{{{}}}}
+{% %}
+<>
+
+클라가 서버에게 요청 보내는 작업 request
+서버가 클라에게 겨로가를 보내는 작업 response
+
+form
+action="서버쪽 프로그램을 명시", method

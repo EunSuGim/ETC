@@ -1,0 +1,46 @@
+Decorator
+
+기존의 코드에 여러가지 기능을 추가하는 구문
+
+Module
+
+함수나 변수 또는 클래스를 모아놓은 파일
+
+-C언어로 구성된 binary moudle
+-python언어로 구현된 일반 moudle
+
+import
+
+exception
+
+compile time error : 문법오류
+runtime error : 
+%비정상종료되지않고 프로그램을 지속적으로 수행시킬 수 있음
+
+try,except,else,finally
+
+
+
+```
+import time
+def my_outer_func(func):
+    def my_inner_func():
+        print("함수 수행시작 시간 : {}".format(func.__name__))
+        start = time.time()
+        func()
+        end = time.time()
+        print("함수 수행완료 시간 : {}".format(round(end-start,2)))
+
+    return my_inner_func
+```  
+
+```
+def my_func() :
+	result = 1
+	for i in range(1,10000) :
+		result *= i
+	print("함수 호출!!")
+	
+func = my_outer_func(my_func)
+func()
+```
