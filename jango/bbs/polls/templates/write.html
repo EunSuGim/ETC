@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='ko'>
+
+<head>
+    <title>Share Office | BoardWrite</title>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="description" content="Share Office Portfolio">
+    <meta name="author" content="Dale">
+
+</head>
+
+<body>
+    <div class="header">
+        <header class="head_main">
+            <nav class="head_main_nav">
+
+            </nav>
+        </header>
+    </div>
+    <form action="{% url 'polls:index' %}" method="post">
+    <main class="board_write_main">
+        <h1 class="board_write_header"> 글 작성</h1>
+        <div class="board_write_form">
+            <div class="board_write_form_title_content">
+                <textarea class="board_write_form_textarea title_textarea" placeholder="제목을 입력하세요."></textarea>
+            </div>
+            <div class="board_write_form_content_content">
+                <textarea class="board_write_form_textarea content_textarea" placeholder="내용을 입력하세요."></textarea>
+            </div>
+            <!-- <div class="board_write_form_file">
+                <input type="file">
+            </div> -->
+            <div class="board_write_form_btn">
+                <div class="dummy"></div>
+                <input class="board_write_form_btn_btn btn_list" type="button" value="취소" onclick=""></input>
+                <input class="board_write_form_btn_btn btn_write"  type="submit" value="등록"></input>
+            </div>
+        </div>
+    </main>
+    </form>
+</body>
+
+</html>

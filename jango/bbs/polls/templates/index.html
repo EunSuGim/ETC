@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='ko'>
+
+<head>
+    <title>Share Office | Board</title>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="description" content="Share Office Portfolio">
+    <meta name="author" content="Dale">
+
+</head>
+
+<body>
+    <main class="board_main">
+            <h1 class="board_header"> 게시판</h1>
+            <form action="{% url 'polls:write' %} " method="post">
+                {% csrf_token %} <!-- 보안상 이유로 사용 -->
+
+
+            <table class="board_list">
+                <tr>
+                    <th class="col1">NO.</th>
+                    <th class="col2">작성자</th>
+                    <th class="col3">제목</th>
+                    <th class="col4">작성일자</th>
+                    <th class="col5">조회수</th>
+                </tr>
+              <tr>
+                    <td class="col1">1</td>
+                    <td class="col2">dmstn123</td>
+                   <td class="col3"> 아 오늘 너무 배가고프다</td>
+                    <td class="col4">2020-07-29</td>
+                    <td class="col5">56</td>
+                </tr>
+                {% for post in posts_list %}
+                <tr>
+                    <td> {{post.id}}</td>
+                    <td> {{post.posts_writer}}</td>
+                    <td><a href="/polls/{{posts.id}}"> {{post.posts_title}}</a></td>
+                    <td> {{post.posts_date|date:"Y-m-d"}}</td>
+                    <td> {{post.posts_votes}}</td>
+                </tr>
+                {% endfor %}
+        </table>
+        <div class="board_footer">
+            <div class="board_footer_search">
+                <div class="board_footer_search_select">
+                <select class="search_select" name="">
+                    <option name=" title" value="title">제목</option>
+                    <option name=" title_content" value="title_.htmlcontent">제목 + 내용</option>
+                    <option name=" writer" value="writer">글쓴이</option>
+                </select>
+            </div>
+                <span class="search_bar"> <input type="text"></span>
+                <input class="search_btn btn_1" type="button" value="검색" onclick=""></input>
+
+                <input class="search_btn btn_2" type="submit" value="글쓰기"></input>
+            </div>
+            <div class="board_footer_pagenum"></div>
+        </div>
+            </form>
+    </main>
+</body>
+
+</html>
+
